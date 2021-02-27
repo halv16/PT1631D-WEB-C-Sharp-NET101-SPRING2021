@@ -1,24 +1,53 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Bai_5_.BaiTap1
 {
     public class Person
     {
-        public string Ten { get; set; }
+        private string ho;
+        private string ten;
 
-        public string Ho { get; set; }
+        public string Ho
+        {
+            get
+            {
+                return ho;
+            }
+            set
+            {
+                ho = value;
+            }
+        }
+
+        public string Ten
+        {
+            get => ten;
+            set => ten = value;
+        }
+
+        public string HoTen
+        {
+            get
+            {
+                string hoTen = $"{Ho} {Ten}";
+                return hoTen;
+            }
+        }
 
         public int Tuoi { get; set; }
 
         public virtual void InThongTin()
         {
-            Console.WriteLine("Ten: " + Ten);
-            Console.WriteLine("Ho: " + Ho);
-            Console.WriteLine("Tuoi: " + Tuoi);
+            // tạo ra 1 chuỗi string có 30 ký tự bằng cách thêm dấu cách đằng trước từ
+            var hoTen = string.Format("{0,30}", HoTen);
+            // tạo ra 1 chuỗi string có 30 ký tự bằng cách thêm dấu cách đằng sau từ
+            hoTen = string.Format("{0,-30}", HoTen);
+
+            Console.Write("{0} \t| {1}", hoTen, Tuoi);
+
+            //Console.WriteLine("Ten: " + Ten);
+            //Console.WriteLine("Ho: " + Ho);
+            //Console.WriteLine("Tuoi: " + Tuoi);
         }
     }
 }
