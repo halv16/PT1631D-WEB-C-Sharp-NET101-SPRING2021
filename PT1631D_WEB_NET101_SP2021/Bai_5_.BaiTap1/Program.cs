@@ -43,6 +43,7 @@ namespace Bai_5_.BaiTap1
                 Console.WriteLine("| 4. Tìm SV theo mã sinh viên    |");
                 Console.WriteLine("| 5. Tìm theo tên gần đúng       |");
                 Console.WriteLine("| 6. Sắp xếp sinh viên theo điểm.|");
+                Console.WriteLine("| 7. Phân chia danh sách theo giới tính.|");
                 Console.WriteLine("| 0. Thoát                       |");
                 Console.WriteLine("|________________________________|");
 
@@ -110,6 +111,11 @@ namespace Bai_5_.BaiTap1
                         SapXepTheoDiem();
                         break;
 
+                    case 7:
+                        Console.WriteLine("| 7. Phân chia danh sách theo giới tính.|");
+                        InTheoGioiTinh();
+                        break;
+
                     default:
                         condition = false;
 
@@ -124,7 +130,37 @@ namespace Bai_5_.BaiTap1
             Console.ReadLine();
         }
 
+        private static void InTheoGioiTinh()
+        {
+            // đổi tên biên: Ctrl + R + R
 
+            // tạo list chứa danh sách giới tính
+            var lstGioiTinh = new List<string>();
+            foreach (var item in list)
+            {
+                if (lstGioiTinh.Contains(item.GioiTinh))
+                    continue;
+
+                lstGioiTinh.Add(item.GioiTinh);
+            }
+
+            foreach (var gioiTinh in lstGioiTinh)
+            {
+                Console.WriteLine("Danh sach sinh vien gioi tinh {0}: ", gioiTinh);
+
+                // list chứa sinh viên theo từng giới tính
+                var lst = new List<Student>();
+                foreach (var sv in list)
+                {
+                    if (sv.GioiTinh == gioiTinh)
+                    {
+                        lst.Add(sv);
+                    }
+                }
+
+                InMang(lst);
+            }
+        }
 
         private static void ThemSinhVien(List<Student> list)
         {
@@ -281,17 +317,18 @@ namespace Bai_5_.BaiTap1
             sv1.Ho = "Lê Văn";
             sv1.Ten = "Hà";
             sv1.Tuoi = 20;
+            sv1.GioiTinh = "Nam";
             sv1.MaSV = "PH0001";
             sv1.DiemTb = 5.1f;
             list.Add(sv1);
 
-            Student sv2 = new Student("Nguyễn Ngọc", "An", 23, "PH0002", 1);
+            Student sv2 = new Student("Nguyễn Ngọc", "An", 23, "Nu", "PH0002", 1);
             list.Add(sv2);
 
-            Student sv3 = new Student("Trần Trung", "Hiếu", 18, "PH0003", 7.5f);
+            Student sv3 = new Student("Trần Trung", "Hiếu", 18, "Gioi Tinh 3", "PH0003", 7.5f);
             list.Add(sv3);
 
-            Student sv4 = new Student("Trần Bảo", "Anh", 17, "PH0004", 10);
+            Student sv4 = new Student("Trần Bảo", "Anh", 17, "Khong Xac Dinh", "PH0004", 10);
             list.Add(sv4);
 
             Student sv5 = new Student()
@@ -299,6 +336,7 @@ namespace Bai_5_.BaiTap1
                 Ho = "Phạm Thế",
                 Ten = "Duyệt",
                 Tuoi = 25,
+                GioiTinh = "Nam",
                 MaSV = "PH0005",
                 DiemTb = 5
             };

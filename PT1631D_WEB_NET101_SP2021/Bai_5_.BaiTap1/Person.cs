@@ -36,6 +36,8 @@ namespace Bai_5_.BaiTap1
 
         public int Tuoi { get; set; }
 
+        public string GioiTinh { get; set; }
+
         public virtual void InThongTin()
         {
             // tạo ra 1 chuỗi string có 30 ký tự bằng cách thêm dấu cách đằng trước từ
@@ -43,7 +45,7 @@ namespace Bai_5_.BaiTap1
             // tạo ra 1 chuỗi string có 30 ký tự bằng cách thêm dấu cách đằng sau từ
             hoTen = string.Format("{0,-30}", HoTen);
 
-            Console.Write("{0} \t| {1}", hoTen, Tuoi);
+            Console.Write("{0} \t| {1} \t| {2,-20}", hoTen, Tuoi, GioiTinh);
 
             //Console.WriteLine("Ten: " + Ten);
             //Console.WriteLine("Ho: " + Ho);

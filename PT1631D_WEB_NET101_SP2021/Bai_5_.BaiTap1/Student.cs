@@ -18,11 +18,12 @@ namespace Bai_5_.BaiTap1
         }
 
         // Hàm khởi tạo có tham số
-        public Student(string ho, string ten, int tuoi, string masv, float diemtb)
+        public Student(string ho, string ten, int tuoi, string gioiTinh, string masv, float diemtb)
         {
             Ho = ho;
             Ten = ten;
             Tuoi = tuoi;
+            GioiTinh = gioiTinh;
             MaSV = masv;
             DiemTb = diemtb;
         }
