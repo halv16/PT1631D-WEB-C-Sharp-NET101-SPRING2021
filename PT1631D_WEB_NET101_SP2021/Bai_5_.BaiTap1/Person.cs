@@ -30,6 +30,9 @@ namespace Bai_5_.BaiTap1
             get
             {
                 string hoTen = $"{Ho} {Ten}";
+                // Viết hoa chữ cái đầu tiên của mỗi từ
+                hoTen = System.Globalization.CultureInfo.InvariantCulture.TextInfo.ToTitleCase(hoTen.ToLower());
+
                 return hoTen;
             }
         }
